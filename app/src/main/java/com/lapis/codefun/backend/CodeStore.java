@@ -6,21 +6,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CodeStore {
-    private HashMap<String, ArrayList<String>> LangList;
-    private ArrayList<String> python;
-    private ArrayList<String> java;
-    private ArrayList<String> cpp;
-    private ArrayList<String> csharp;
+    private ArrayList<String> python = new ArrayList<>();
+    private ArrayList<String> java = new ArrayList<>();
+    private ArrayList<String> cpp = new ArrayList<>();
+    private ArrayList<String> csharp = new ArrayList<>();
 
     CodeStore(){
         setPythonQuestions();
         setJavaQuestions();
         setCppQuestions();
         setCsharpQuestions();
-        LangList.put("Python", python);
-        LangList.put("Java", java);
-        LangList.put("C++", cpp);
-        LangList.put("C#", csharp);
     }
 
     public ArrayList<String> getLangList(Language newLang) {
@@ -31,7 +26,39 @@ public class CodeStore {
         }
     }
 
-    private void setPythonQuestions(){
+    private void setPythonQuestions() {
+        python.add("{\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"i = 0\",\n" +
+                "      \"i = 1\",\n" +
+                "      \"i = -1\",\n" +
+                "      \"i = 2\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"while i < 5:\",\n" +
+                "      \"while i <= 5:\",\n" +
+                "      \"while i > 5:\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"\\t\\tprint(i)\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"\\t\\ti += 1\",\n" +
+                "      \"\\t\\ti += 2\",\n" +
+                "      \"\\t\\treturn i\",\n" +
+                "      \"\\t\\ti = i - 1\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"prompt\": \"Print the numbers 1 through 5\",\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
+
         python.add("{\n" +
                 "  \"origCode\": [\n" +
                 "    [\n" +
@@ -57,7 +84,7 @@ public class CodeStore {
                 "    ]\n" +
                 "  ],\n" +
                 "  \"prompt\": \"Set var to 5 and print \\\"var is set to 5\\\"\",\n" +
-                "  \"c orrectCode\": [\n" +
+                "  \"correctCode\": [\n" +
                 "    0,\n" +
                 "    1,\n" +
                 "    0,\n" +
@@ -65,74 +92,28 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
-
-        python.add("{\n" +
-            "  \"origCode\": [\n" +
-            "    [\n" +
-            "      \"var = 5\",\n" +
-            "      \"var = 4\"\n" +
-            "    ],\n" +
-            "    [\n" +
-            "      \"if var = 5:\",\n" +
-            "      \"if var == 5:\",\n" +
-            "      \"if var = 5+1:\",\n" +
-            "      \"while var = 5:\"\n" +
-            "    ],\n" +
-            "    [\n" +
-            "      \"\\t\\tprint('var is set to ' + var)\",\n" +
-            "      \"\\t\\tprint('var is set to ', var)\"\n" +
-            "    ],\n" +
-            "    [\n" +
-            "      \"else:\",\n" +
-            "      \"(remove else)\"\n" +
-            "    ],\n" +
-            "    [\n" +
-            "      \"\\t\\tprint('var is set to something else')\"\n" +
-            "    ]\n" +
-            "  ],\n" +
-            "  \"prompt\": \"Set var to 5 and print \\\"var is set to 5\\\"\",\n" +
-            "  \"correctCode\": [\n" +
-            "    \"var = 5\",\n" +
-            "    \"if var == 5:\",\n" +
-            "    \"\\t\\tprint('var is set to ' + var)\",\n" +
-            "    \"else:\",\n" +
-            "    \"\\t\\tprint('var is set to something else')\"\n" +
-            "  ]\n" +
-            "}");
-
         python.add("{\n" +
                 "  \"origCode\": [\n" +
                 "    [\n" +
-                "      \"var = 5\",\n" +
-                "      \"var = 4\"\n" +
+                "      \"for i in range(20,10,2):\",\n" +
+                "      \"for i in range(20,10,-2):\",\n" +
+                "      \"for i in range(20,8,-2):\",\n" +
+                "      \"for i in range(10,20,2):\",\n" +
+                "      \"for i in range(20,2):\"\n" +
                 "    ],\n" +
                 "    [\n" +
-                "      \"if var = 5:\",\n" +
-                "      \"if var == 5:\",\n" +
-                "      \"if var = 5+1:\",\n" +
-                "      \"while var = 5\"\n" +
-                "    ],\n" +
-                "    [\n" +
-                "      \"\\t\\tprint('var is set to ' + var)\",\n" +
-                "      \"\\t\\tprint('var is set to ', var)\"\n" +
-                "    ],\n" +
-                "    [\n" +
-                "      \"else:\",\n" +
-                "      \"(remove else)\"\n" +
-                "    ],\n" +
-                "    [\n" +
-                "      \"\\t\\tprint('var is set to something else')\"\n" +
+                "      \"\\t\\tprint(i)\",\n" +
+                "      \"\\t\\tprint(2*i)\",\n" +
+                "      \"\\t\\tprint('i')\"\n" +
                 "    ]\n" +
                 "  ],\n" +
-                "  \"prompt\": \"Set var to 5 and print \\\"var is set to 5\\\"\",\n" +
+                "  \"prompt\": \"Print the even numbers from 20 down to 10\",\n" +
                 "  \"correctCode\": [\n" +
-                "    \"var = 5\",\n" +
-                "    \"if var == 5:\",\n" +
-                "    \"\\t\\tprint('var is set to ' + var)\",\n" +
-                "    \"else:\",\n" +
-                "    \"\\t\\tprint('var is set to something else')\"\n" +
+                "    2,\n" +
+                "    0\n" +
                 "  ]\n" +
                 "}");
+
     }
 
     private void setJavaQuestions(){
@@ -164,11 +145,11 @@ public class CodeStore {
                 "  ],\n" +
                 "  \"prompt\": \"Print the numbers 1 through 5\",\n" +
                 "  \"correctCode\": [\n" +
-                "    \"int i = 1;\",\n" +
-                "    \"while (i <= 5){\",\n" +
-                "    \"\\t\\tSystem.out.print(i);\",\n" +
-                "    \"\\t\\ti += 1;\",\n" +
-                "    \"}\"\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
                 "  ]\n" +
                 "}");
 
@@ -198,11 +179,11 @@ public class CodeStore {
                 "  ],\n" +
                 "  \"prompt\": \"Set var to 5 and print \\\"var is set to 5\\\"\",\n" +
                 "  \"correctCode\": [\n" +
-                "    \"int var = 5;\",\n" +
-                "    \"if(var == 5)\",\n" +
-                "    \"\\t\\tSystem.out.print(\\\"var is set to \\\" + var);\",\n" +
-                "    \"else\",\n" +
-                "    \"\\t\\tSystem.out.print(\\\"var is set to something else\\\");\"\n" +
+                "    0,\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
                 "  ]\n" +
                 "}");
     }
@@ -236,11 +217,11 @@ public class CodeStore {
                 "  ],\n" +
                 "  \"prompt\": \"Print the numbers 1 through 5\",\n" +
                 "  \"correctCode\": [\n" +
-                "    \"int i = 1;\",\n" +
-                "    \"while (i <= 5){\",\n" +
-                "    \"\\t\\tSystem.out.print(i);\",\n" +
-                "    \"\\t\\ti += 1;\",\n" +
-                "    \"}\"\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
                 "  ]\n" +
                 "}");
 
@@ -270,11 +251,11 @@ public class CodeStore {
                 "  ],\n" +
                 "  \"prompt\": \"Set var to 5 and print \\\"var is set to 5\\\"\",\n" +
                 "  \"correctCode\": [\n" +
-                "    \"int var = 5;\",\n" +
-                "    \"if(var == 5)\",\n" +
-                "    \"\\t\\tSystem.out.print(\\\"var is set to \\\" + var);\",\n" +
-                "    \"else\",\n" +
-                "    \"\\t\\tSystem.out.print(\\\"var is set to something else\\\");\"\n" +
+                "    0,\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
                 "  ]\n" +
                 "}");
     }
@@ -308,11 +289,11 @@ public class CodeStore {
                 "  ],\n" +
                 "  \"prompt\": \"Print the numbers 1 through 5\",\n" +
                 "  \"correctCode\": [\n" +
-                "    \"int i = 1;\",\n" +
-                "    \"while (i <= 5){\",\n" +
-                "    \"\\t\\tSystem.out.print(i);\",\n" +
-                "    \"\\t\\ti += 1;\",\n" +
-                "    \"}\"\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
                 "  ]\n" +
                 "}");
 
@@ -342,11 +323,11 @@ public class CodeStore {
                 "  ],\n" +
                 "  \"prompt\": \"Set var to 5 and print \\\"var is set to 5\\\"\",\n" +
                 "  \"correctCode\": [\n" +
-                "    \"int var = 5;\",\n" +
-                "    \"if(var == 5)\",\n" +
-                "    \"\\t\\tSystem.out.print(\\\"var is set to \\\" + var);\",\n" +
-                "    \"else\",\n" +
-                "    \"\\t\\tSystem.out.print(\\\"var is set to something else\\\");\"\n" +
+                "    0,\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
                 "  ]\n" +
                 "}");
     }
