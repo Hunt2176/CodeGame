@@ -14,7 +14,7 @@ public class GameInstance{
 
 
     // setup new game
-    GameInstance(int questionNum, String lang) {
+    public GameInstance(int questionNum, String lang) {
         currentLang = lang;
         numberofQuestions = questionNum;
         CodeList = getQuestionList();

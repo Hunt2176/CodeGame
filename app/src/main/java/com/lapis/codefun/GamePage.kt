@@ -10,10 +10,15 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.lapis.codefun.backend.CodeStore
+import com.lapis.codefun.backend.GameInstance
+import com.lapis.codefun.backend.Games
+import com.lapis.codefun.backend.Question
 import kotlinx.android.synthetic.main.activity_game_page.*
 
 class GamePage : AppCompatActivity()
 {
+    val game = GameInstance(1, "python")
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -23,15 +28,10 @@ class GamePage : AppCompatActivity()
             //TODO: Add in submit
         }
 
-        var testQuestion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
-        var answers = arrayListOf(
-            Pair("while i < 3:", arrayListOf("while i == 3", "while i < 3:", "while i >= 3:")),
-            Pair("\tprint(\"Hello World\")", arrayListOf("print(Hello World)", "print \"Hello World\"")),
-            Pair("\ti += 1", arrayListOf())
-        )
+        val question = game.question
 
-        questionField.text = testQuestion
-        questionRecycler.adapter = AnswersAdapter(this, answers)
+        questionField.text = question.prompt
+        questionRecycler.adapter = AnswersAdapter(this, question)
         questionRecycler.layoutManager = GridLayoutManager(this, 1)
 
     }
@@ -50,9 +50,9 @@ class GamePage : AppCompatActivity()
     }
 }
 
-class AnswersAdapter(private val context: Context, private val answers: ArrayList<Pair<String, ArrayList<String>>>): RecyclerView.Adapter<AnswerCell>()
+class AnswersAdapter(private val context: Context, private val question: Question): RecyclerView.Adapter<AnswerCell>()
 {
-    override fun getItemCount(): Int = answers.size
+    override fun getItemCount(): Int = question.origCode.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerCell
     {
@@ -61,15 +61,15 @@ class AnswersAdapter(private val context: Context, private val answers: ArrayLis
 
     override fun onBindViewHolder(answerCell: AnswerCell, position: Int)
     {
-        answerCell.setText(answers[position].first)
-        answerCell.setAnswers(answers[position].second)
+        answerCell.setText(question.origCode[position][0])
+        answerCell.setAnswers(question.origCode[position])
     }
 }
 
 class AnswerCell(view: View): RecyclerView.ViewHolder(view)
 {
     private var answerTextView: TextView? = null
-    private var answers = arrayListOf<String>()
+    private var answers = arrayOf<String>()
 
     init
     {
@@ -78,12 +78,12 @@ class AnswerCell(view: View): RecyclerView.ViewHolder(view)
             if (answers.isEmpty()) return@setOnClickListener
 
             val popupMenu = PopupMenu(view.context, view)
-            answers.forEach { popupMenu.menu.add(it) }
+            answers.forEachIndexed {index, value -> popupMenu.menu.add(value) }
 
             popupMenu.show()
 
             popupMenu.setOnMenuItemClickListener {
-                //TODO: Hook into API for game when clicked
+
                 return@setOnMenuItemClickListener true
             }
         }
@@ -94,10 +94,9 @@ class AnswerCell(view: View): RecyclerView.ViewHolder(view)
         answerTextView?.text = " $text "
     }
 
-    fun setAnswers(answers: ArrayList<String>)
+    fun setAnswers(answers: Array<String>)
     {
-        this.answers.clear()
-        this.answers.addAll(answers)
+        this.answers = answers
         if (answers.isNotEmpty())
         {
             answerTextView?.background = itemView.resources.getDrawable(R.drawable.border, null)

@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 public class CodeStore {
     private HashMap<String, ArrayList<String>> LangList;
-    private ArrayList<String> python;
-    private ArrayList<String> java;
+    private ArrayList<String> python = new ArrayList<>();
+    private ArrayList<String> java = new ArrayList<>();
 
     CodeStore(){
         setPythonQuestions();
