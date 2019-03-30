@@ -3,13 +3,25 @@ package com.lapis.codefun.backend;
 import com.lapis.codefun.Language;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class CodeStore {
     private ArrayList<String> python = new ArrayList<>();
     private ArrayList<String> java = new ArrayList<>();
     private ArrayList<String> cpp = new ArrayList<>();
     private ArrayList<String> csharp = new ArrayList<>();
+
+    public static int sizeOf(Language language)
+    {
+        CodeStore store = new CodeStore();
+        switch (language)
+        {
+            case PYTHON: return store.python.size();
+            case CPP: return store.cpp.size();
+            case JAVA: return store.java.size();
+            case CSHARP: return store.csharp.size();
+            default: return 0;
+        }
+    }
 
     CodeStore(){
         setPythonQuestions();

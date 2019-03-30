@@ -3,6 +3,7 @@ package com.lapis.codefun
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,12 +14,17 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import com.google.gson.Gson
 import com.lapis.codefun.backend.GameInstance
 import com.lapis.codefun.backend.Tracker
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.File
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity()
 {
+    val tracker: Tracker = readTracker()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -74,11 +80,34 @@ class MainActivity : AppCompatActivity()
         }
     }
 
+    fun updateTrackerFile(tracker: Tracker)
+    {
+        File(this.filesDir, "tracker.json").writeText(tracker.toJson())
+    }
+
+    fun readTracker(): Tracker
+    {
+        return try
+        {
+            Gson().fromJson(File(this.filesDir, "tracker.json").readText(), Tracker::class.java)
+        } catch (e: Exception)
+        {
+            e.printStackTrace()
+            Tracker()
+        }
+    }
+
     override fun onPostResume() {
         super.onPostResume()
         println("HAS RESUMED")
         val instance = GameInstance.getInstance() ?: return
-
+        instance.concludeGame(tracker)
+        AlertDialog.Builder(this)
+            .setTitle("You scored: ${tracker.gameHistory.last().score}")
+            .setPositiveButton("Continue") { _,_ -> }
+            .show()
+        updateTrackerFile(tracker)
+        readTracker()
     }
 }
 

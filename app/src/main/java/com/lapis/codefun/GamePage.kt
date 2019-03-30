@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_game_page.*
 
 class GamePage : AppCompatActivity()
 {
-    val game = GameInstance(1, Language.current)
+    val game = GameInstance.createInstance(CodeStore.sizeOf(Language.current) - 1, Language.current)
     var question: Question? = game.question
     override fun onCreate(savedInstanceState: Bundle?)
     {

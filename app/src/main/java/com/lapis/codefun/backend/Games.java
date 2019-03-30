@@ -9,7 +9,16 @@ public class Games {
 
     Games(int newScore, int numOfQuestions, Language lang) {
         score = newScore;
-        percentCorrect = score / numOfQuestions;
+        try
+        {
+            percentCorrect = score / numOfQuestions;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            percentCorrect = 0;
+        }
+
         language = lang;
     }
 

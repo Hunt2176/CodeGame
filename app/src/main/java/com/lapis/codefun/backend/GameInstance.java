@@ -51,11 +51,10 @@ public class GameInstance{
         Collections.shuffle(questions);
 
         // cut off the list of questions
-//        questions.subList(numberofQuestions, questions.size() - 1).clear();
+        questions.subList(numberofQuestions, questions.size() - 1).clear();
 
         // parse JSON in question objects
         ArrayList<Question> questionObjects = parseTheJSON(questions);
-
         return questionObjects;
     }
 
