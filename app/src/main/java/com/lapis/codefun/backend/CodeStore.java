@@ -1,4 +1,4 @@
-package com.lapis.codefun.com.lapis.backend;
+package com.lapis.codefun.backend;
 
 import java.util.ArrayList;
 import java.util.HashMap;
