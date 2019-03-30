@@ -87,7 +87,7 @@ public class CodeStore {
                 "  \"correctCode\": [\n" +
                 "    0,\n" +
                 "    1,\n" +
-                "    0,\n" +
+                "    1,\n" +
                 "    0,\n" +
                 "    0\n" +
                 "  ]\n" +
@@ -203,7 +203,7 @@ public class CodeStore {
                 "      \"while (i > 5){\"\n" +
                 "    ],\n" +
                 "    [\n" +
-                "      \"\\t\\tSystem.out.print(i);\"\n" +
+                "      \"\\t\\tcout<<i;\"\n" +
                 "    ],\n" +
                 "    [\n" +
                 "      \"\\t\\ti += 1;\",\n" +
@@ -238,15 +238,15 @@ public class CodeStore {
                 "      \"while(var = 5)\"\n" +
                 "    ],\n" +
                 "    [\n" +
-                "      \"System.out.print(\\\"var is set to \\\" + var);\",\n" +
-                "      \"System.out.print(\\\"var is set to \\\", var);\"\n" +
+                "      \"cout << \\\"var is set to \\\" << var;\",\n" +
+                "      \"cout >> \\\"var is set to \\\" >> var;\"\n" +
                 "    ],\n" +
                 "    [\n" +
                 "      \"else\",\n" +
                 "      \"(remove else)\"\n" +
                 "    ],\n" +
                 "    [\n" +
-                "      \"System.out.print(\\\"var is set to something else\\\");\"\n" +
+                "      \"cout << \\\"var is set to something else\\\";\"\n" +
                 "    ]\n" +
                 "  ],\n" +
                 "  \"prompt\": \"Set var to 5 and print \\\"var is set to 5\\\"\",\n" +
@@ -275,7 +275,7 @@ public class CodeStore {
                 "      \"while (i > 5){\"\n" +
                 "    ],\n" +
                 "    [\n" +
-                "      \"\\t\\tSystem.out.print(i);\"\n" +
+                "      \"\\t\\tConsole.WriteLine(i);\"\n" +
                 "    ],\n" +
                 "    [\n" +
                 "      \"\\t\\ti += 1;\",\n" +
@@ -310,15 +310,15 @@ public class CodeStore {
                 "      \"while(var = 5)\"\n" +
                 "    ],\n" +
                 "    [\n" +
-                "      \"System.out.print(\\\"var is set to \\\" + var);\",\n" +
-                "      \"System.out.print(\\\"var is set to \\\", var);\"\n" +
+                "      \"Console.WriteLine(\\\"var is set to \\\" + var);\",\n" +
+                "      \"Console.WriteLine(\\\"var is set to \\\", var);\"\n" +
                 "    ],\n" +
                 "    [\n" +
                 "      \"else\",\n" +
                 "      \"(remove else)\"\n" +
                 "    ],\n" +
                 "    [\n" +
-                "      \"System.out.print(\\\"var is set to something else\\\");\"\n" +
+                "      \"Console.WriteLine(\\\"var is set to something else\\\");\"\n" +
                 "    ]\n" +
                 "  ],\n" +
                 "  \"prompt\": \"Set var to 5 and print \\\"var is set to 5\\\"\",\n" +

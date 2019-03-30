@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Tracker {
     private int highScore;
-    private ArrayList<Games> gameHistory;
+    private ArrayList<Games> gameHistory = new ArrayList<>();
 
     // add new game data
     public void setNewScore(int score, int numOfQuestions,  Language lang) {
