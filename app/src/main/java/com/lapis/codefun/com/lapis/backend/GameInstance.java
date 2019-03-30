@@ -2,6 +2,7 @@ package com.lapis.codefun.com.lapis.backend;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import com.google.gson.*;
 
 public class GameInstance{
     private String currentLang;
@@ -37,11 +38,11 @@ public class GameInstance{
         return CodeList.remove(0);
     }
 
-    public void updateCode() {
+    public void submit(Question question) {
 
     }
 
+    public void concludeGame() {
 
-
-
+    }
 }
