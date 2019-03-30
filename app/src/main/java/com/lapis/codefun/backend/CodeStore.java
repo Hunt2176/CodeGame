@@ -13,8 +13,8 @@ public class CodeStore {
         setJavaQuestions();
     }
 
-    public HashMap<String, ArrayList<String>> getLangList() {
-        return LangList;
+    public ArrayList<String> getLangList(String myLang) {
+        return python;
     }
 
     private void setPythonQuestions(){
