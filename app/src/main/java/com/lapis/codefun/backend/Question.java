@@ -3,7 +3,7 @@ package com.lapis.codefun.backend;
 public class Question {
     String[][] origCode;
     String prompt;
-    String[] correctCode;
+    int[] correctCode;
 
     public String[][] getOrigCode() {
         return origCode;
@@ -13,7 +13,7 @@ public class Question {
         return prompt;
     }
 
-    public String[] getCorrectCode() {
+    public int[] getCorrectCode() {
         return correctCode;
     }
 }
