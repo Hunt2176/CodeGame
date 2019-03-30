@@ -25,7 +25,7 @@ public class GameInstance{
     private ArrayList<Question> getQuestionList() {
         // get list of questions
         CodeStore store = new CodeStore();
-        ArrayList<String> questions = store.getQuestionsByLang(currentLang);
+        ArrayList<String> questions
 
         //shuffle the questions
         Collections.shuffle(questions);
