@@ -2,18 +2,20 @@ package com.lapis.codefun.backend;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import com.google.gson.*;
+import com.lapis.codefun.Language;
 
 public class GameInstance{
-    private String currentLang;
+    private Language currentLang;
     private int numberofQuestions;
-    private Question CurrentCode;
+    private String[] CurrentAnswer;
     private ArrayList<Question> CodeList;
     private int currentScore;
     private int currentScoreMulti;
 
 
     // setup new game
-    GameInstance(int questionNum, String lang) {
+    public GameInstance(int questionNum, Language lang) {
         currentLang = lang;
         numberofQuestions = questionNum;
         CodeList = getQuestionList();
@@ -25,7 +27,7 @@ public class GameInstance{
     private ArrayList<Question> getQuestionList() {
         // get list of questions
         CodeStore store = new CodeStore();
-        ArrayList<String> questions
+        ArrayList<String> questions = store.getLangList(currentLang);
 
         //shuffle the questions
         Collections.shuffle(questions);
@@ -41,25 +43,52 @@ public class GameInstance{
 
     // parse the json questions into question objects
     private ArrayList<Question> parseTheJSON(ArrayList<String> questionStrings) {
-        ArrayList<Question> questionObjects = new ArrayList<Question>();
+        ArrayList<Question> questionObjects = new ArrayList<>();
+        Gson gson = new Gson();
 
-        questionStrings.forEach((question) -> System.out.print(question));
+        questionStrings.forEach((question) -> {
+            Question newQuestion = gson.fromJson(question, Question.class);
+            questionObjects.add(newQuestion);
+        });
 
         return questionObjects;
     }
 
 
     public Question getQuestion() {
-        return CodeList.remove(0);
+        try {
+            return CodeList.remove(0);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
     }
 
-    public void submit(Question question) {
+    public int submit(String[] currentCode, Question original) {
+        int questionScore = 0;
+        for (String line : currentCode) {
+           for (String origLine : original.correctCode) {
+               if (line.equals(origLine)) {
+                   questionScore++;
+               }
+           }
+        }
 
+        currentScore += questionScore;
+        CurrentAnswer = currentCode;
+
+        if (questionScore == original.correctCode.length) {
+            currentScoreMulti++;
+        }
+        else {
+            currentScoreMulti = 1;
+        }
+
+        return questionScore;
     }
 
     // update game history
     public Tracker concludeGame(Tracker gameStore) {
-        gameStore.setNewScore(currentScore, numberofQuestions, currentLang);
+        gameStore.setNewScore((currentScore * currentScoreMulti), numberofQuestions, currentLang);
         return gameStore;
     }
 }

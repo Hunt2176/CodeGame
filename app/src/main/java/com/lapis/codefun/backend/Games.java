@@ -1,11 +1,13 @@
 package com.lapis.codefun.backend;
 
+import com.lapis.codefun.Language;
+
 public class Games {
     private int score;
     private int percentCorrect;
-    private String language;
+    private Language language;
 
-    Games(int newScore, int numOfQuestions, String lang) {
+    Games(int newScore, int numOfQuestions, Language lang) {
         score = newScore;
         percentCorrect = score / numOfQuestions;
         language = lang;
@@ -18,5 +20,5 @@ public class Games {
     public int getPercentCorrect() { return percentCorrect; }
 
     // get this game's language
-    public String getLanguage() { return language; }
+    public Language getLanguage() { return language; }
 }

@@ -1,5 +1,7 @@
 package com.lapis.codefun.backend;
 
+import com.lapis.codefun.Language;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,8 +23,12 @@ public class CodeStore {
         LangList.put("C#", csharp);
     }
 
-    public HashMap<String, ArrayList<String>> getLangList() {
-        return LangList;
+    public ArrayList<String> getLangList(Language newLang) {
+        switch (newLang) {
+            case PYTHON: return python;
+            case JAVA: return java;
+            default: return null;
+        }
     }
 
     private void setPythonQuestions(){
