@@ -68,6 +68,7 @@ public class GameInstance{
            }
         }
 
+        currentScore += questionScore;
         CurrentAnswer = currentCode;
 
         if (questionScore == original.correctCode.length) {
@@ -77,7 +78,7 @@ public class GameInstance{
             currentScoreMulti = 1;
         }
 
-        return currentScore;
+        return questionScore;
     }
 
     // update game history
