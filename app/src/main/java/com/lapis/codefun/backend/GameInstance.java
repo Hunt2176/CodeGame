@@ -6,6 +6,24 @@ import com.google.gson.*;
 import com.lapis.codefun.Language;
 
 public class GameInstance{
+
+    static GameInstance instance = null;
+    public static GameInstance getInstance()
+    {
+        return instance;
+    }
+
+    public static GameInstance createInstance(int questionNumber, Language language)
+    {
+        instance = new GameInstance(questionNumber, language);
+        return instance;
+    }
+
+    public static void clearInstance()
+    {
+        instance = null;
+    }
+
     private Language currentLang;
     private int numberofQuestions;
     private int[] CurrentAnswer;
@@ -33,7 +51,7 @@ public class GameInstance{
         Collections.shuffle(questions);
 
         // cut off the list of questions
-        questions.subList(numberofQuestions, questions.size() - 1).clear();
+//        questions.subList(numberofQuestions, questions.size() - 1).clear();
 
         // parse JSON in question objects
         ArrayList<Question> questionObjects = parseTheJSON(questions);

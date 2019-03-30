@@ -13,6 +13,8 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import com.lapis.codefun.backend.GameInstance
+import com.lapis.codefun.backend.Tracker
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity()
@@ -34,11 +36,28 @@ class MainActivity : AppCompatActivity()
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long)
             {
                 val icon = when (position) {
-                    0 -> resources.getDrawable(R.drawable.java_icon, null)
-                    1 -> resources.getDrawable(R.drawable.python_icon, null)
+                    0 ->
+                    {
+                        Language.current = Language.values()[position]
+                        resources.getDrawable(R.drawable.java_icon, null)
+                    }
+                    1 ->
+                    {
+                        Language.current = Language.values()[position]
+                        resources.getDrawable(R.drawable.python_icon, null)
+                    }
+                    2 ->
+                    {
+                        Language.current = Language.values()[position]
+                        resources.getDrawable(R.drawable.cpp_icon, null)
+                    }
+                    3 ->
+                    {
+                        Language.current = Language.values()[position]
+                        resources.getDrawable(R.drawable.csharp_icon, null)
+                    }
                     else -> null
                 } ?: return
-
                 val valueAnimator = ValueAnimator.ofInt(0, 100)
                 valueAnimator.addUpdateListener { animation ->
                     iconView.alpha = animation.animatedFraction
@@ -53,6 +72,13 @@ class MainActivity : AppCompatActivity()
                 set.start()
             }
         }
+    }
+
+    override fun onPostResume() {
+        super.onPostResume()
+        println("HAS RESUMED")
+        val instance = GameInstance.getInstance() ?: return
+
     }
 }
 
@@ -76,7 +102,12 @@ class LanguageAdapter(context: Context):
 
 enum class Language
 {
-    JAVA, PYTHON;
+    JAVA, PYTHON, CPP, CSHARP;
+
+    companion object
+    {
+        var current = JAVA
+    }
 
     override fun toString(): String
     {
@@ -84,6 +115,8 @@ enum class Language
         {
             JAVA -> "Java"
             PYTHON -> "Python"
+            CPP -> "C++"
+            CSHARP -> "C#"
         }
     }
 }
