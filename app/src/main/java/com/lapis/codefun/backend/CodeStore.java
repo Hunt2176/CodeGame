@@ -203,6 +203,30 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+
+        java.add("{\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Scanner reader = new Scanner(System.in);\",\n" +
+                "      \"Scanner reader = new Scanner();\",\n" +
+                "      \"Scanner reader;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"System.out.print(\\\"Enter a number: \\\");\",\n" +
+                "      \"print(\\\"Enter a number\\\");\",\n" +
+                "      \"reader = new Scanner(\\\"Enter a number: \\\");\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int number = reader.nextInt();\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"prompt\": \"Get an integer from the user and store in a variable\",\n" +
+                "  \"correctCode\": [\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
     }
 
 
