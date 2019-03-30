@@ -38,6 +38,7 @@ public class CodeStore {
         }
     }
 
+    //Python
     private void setPythonQuestions() {
         python.add("{\n" +
                 "  \"origCode\": [\n" +
@@ -128,6 +129,8 @@ public class CodeStore {
 
     }
 
+
+    //Java
     private void setJavaQuestions(){
         java.add("{\n" +
                 "  \"origCode\": [\n" +
@@ -200,6 +203,9 @@ public class CodeStore {
                 "}");
     }
 
+
+
+    //C++
     private void setCppQuestions(){
         cpp.add("{\n" +
                 "  \"origCode\": [\n" +
@@ -270,8 +276,57 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+
+        cpp.add("{\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"int main()\",\n" +
+                "      \"void main():\",\n" +
+                "      \"void hello();\\nvoid main()\",\n" +
+                "      \"void hello();\\nint main()\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"{\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"\\t\\thello();\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"}\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"void hello()\",\n" +
+                "      \"int hello()\",\n" +
+                "      \"char* hello()\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"{\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"\\t\\tcout << \\\"hello world\\\";\",\n" +
+                "      \"\\t\\tcout >> \\\"hello world\\\";\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"}\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"prompt\": \"Call a function from main to print \\\"hello world\\\"\",\n" +
+                "  \"correctCode\": [\n" +
+                "    3,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
     }
 
+
+
+    //C#
     private void setCsharpQuestions(){
         csharp.add("{\n" +
                 "  \"origCode\": [\n" +
