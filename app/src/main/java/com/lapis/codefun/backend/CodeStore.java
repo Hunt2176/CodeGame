@@ -399,5 +399,44 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+
+        csharp.add("{\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"static Pen pen1;\",\n" +
+                "      \"static Point point1;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"Main() {\",\n" +
+                "      \"static void Main(string[] args) {\",\n" +
+                "      \"static Main {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"if (point == (0,0)) {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"return 0;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"{\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"return 1;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"}\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"prompt\": \"make a point and complete run without error\",\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
     }
 }
