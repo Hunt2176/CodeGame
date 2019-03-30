@@ -68,6 +68,7 @@ public class GameInstance{
            }
         }
 
+        currentScore += questionScore;
         CurrentAnswer = currentCode;
 
         if (questionScore == original.correctCode.length) {
