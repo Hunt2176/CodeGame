@@ -486,5 +486,25 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+
+        csharp.add("{\n" +
+                "  \"prompt\": \"take the cube of a number and print it\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Func<int, int> cube = x -> x * x * x;\",\n" +
+                "      \"Func<int, int> cube = x => x * x * x;\",\n" +
+                "      \"Func<int, int> cube = x => x * x;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"Console.WriteLine(cube(3));\",\n" +
+                "      \"System.out.println(square(3));\",\n" +
+                "      \"Console.WriteLine(square(3));\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
     }
 }
