@@ -34,6 +34,8 @@ public class CodeStore {
         switch (newLang) {
             case PYTHON: return python;
             case JAVA: return java;
+            case CPP: return cpp;
+            case CSHARP: return csharp;
             default: return null;
         }
     }
