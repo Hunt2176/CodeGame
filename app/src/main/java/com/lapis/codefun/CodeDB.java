@@ -1,4 +1,5 @@
 package com.lapis.codefun;
 
-public class codeOrganizer {
+public class CodeDB {
+
 }
