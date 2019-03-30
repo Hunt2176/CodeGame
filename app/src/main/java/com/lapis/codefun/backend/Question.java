@@ -1,7 +1,7 @@
 package com.lapis.codefun.backend;
 
 public class Question {
-    private String prompt;
-    private String[] initCode;
-
+    String[][] origCode;
+    String prompt;
+    String[] correctCode;
 }
