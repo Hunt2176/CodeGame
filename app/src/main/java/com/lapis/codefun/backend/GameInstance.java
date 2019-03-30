@@ -3,9 +3,10 @@ package com.lapis.codefun.backend;
 import java.util.ArrayList;
 import java.util.Collections;
 import com.google.gson.*;
+import com.lapis.codefun.Language;
 
 public class GameInstance{
-    private String currentLang;
+    private Language currentLang;
     private int numberofQuestions;
     private String[] CurrentAnswer;
     private ArrayList<Question> CodeList;
@@ -14,7 +15,7 @@ public class GameInstance{
 
 
     // setup new game
-    public GameInstance(int questionNum, String lang) {
+    public GameInstance(int questionNum, Language lang) {
         currentLang = lang;
         numberofQuestions = questionNum;
         CodeList = getQuestionList();
@@ -55,7 +56,11 @@ public class GameInstance{
 
 
     public Question getQuestion() {
-        return CodeList.remove(0);
+        try {
+            return CodeList.remove(0);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
     }
 
     public int submit(String[] currentCode, Question original) {

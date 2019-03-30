@@ -1,5 +1,7 @@
 package com.lapis.codefun.backend;
 
+import com.lapis.codefun.Language;
+
 import java.util.ArrayList;
 
 public class Tracker {
@@ -7,7 +9,7 @@ public class Tracker {
     private ArrayList<Games> gameHistory;
 
     // add new game data
-    public void setNewScore(int score, int numOfQuestions,  String lang) {
+    public void setNewScore(int score, int numOfQuestions,  Language lang) {
         Games newGame = new Games(score, numOfQuestions, lang);
         gameHistory.add(newGame);
     }
