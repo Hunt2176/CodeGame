@@ -8,7 +8,7 @@ import com.lapis.codefun.Language;
 public class GameInstance{
     private Language currentLang;
     private int numberofQuestions;
-    private String[] CurrentAnswer;
+    private int[] CurrentAnswer;
     private ArrayList<Question> CodeList;
     private int currentScore;
     private int currentScoreMulti;
@@ -63,11 +63,11 @@ public class GameInstance{
         }
     }
 
-    public int submit(String[] currentCode, Question original) {
+    public int submit(int[] currentCode, Question original) {
         int questionScore = 0;
-        for (String line : currentCode) {
-           for (String origLine : original.correctCode) {
-               if (line.equals(origLine)) {
+        for (int line : currentCode) {
+           for (int origLine : original.correctCode) {
+               if (line == origLine) {
                    questionScore++;
                }
            }
