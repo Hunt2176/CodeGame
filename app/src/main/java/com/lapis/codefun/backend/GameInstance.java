@@ -58,7 +58,7 @@ public class GameInstance{
         return CodeList.remove(0);
     }
 
-    public void submit(String[] currentCode, Question original) {
+    public int submit(String[] currentCode, Question original) {
         int questionScore = 0;
         for (String line : currentCode) {
            for (String origLine : original.correctCode) {
@@ -76,6 +76,8 @@ public class GameInstance{
         else {
             currentScoreMulti = 1;
         }
+
+        return currentScore;
     }
 
     // update game history
