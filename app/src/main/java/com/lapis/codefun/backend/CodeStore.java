@@ -438,5 +438,29 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+
+        csharp.add("{\n" +
+                "  \"prompt\": \"Add the integers 2 and 8\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"float a = 2F\",\n" +
+                "      \"int a = 8;\",\n" +
+                "      \"int a = 6;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int b = 8;\",\n" +
+                "      \"int b = 2;\",\n" +
+                "      \"static Main {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int c = a + b\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
     }
 }
