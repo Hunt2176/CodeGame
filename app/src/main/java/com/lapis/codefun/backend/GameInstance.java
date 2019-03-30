@@ -12,6 +12,7 @@ public class GameInstance{
     private int currentScoreMulti;
 
 
+    // setup new game
     GameInstance(int questionNum, String lang) {
         currentLang = lang;
         numberofQuestions = questionNum;
@@ -20,18 +21,33 @@ public class GameInstance{
         currentScoreMulti = 1;
     }
 
+    // retrieve list of questions
     private ArrayList<Question> getQuestionList() {
         // get list of questions
         CodeStore store = new CodeStore();
-        ArrayList<Question> questions = store.getQuestionsByLang(currentLang);
+        ArrayList<String> questions = store.getQuestionsByLang(currentLang);
 
         //shuffle the questions
         Collections.shuffle(questions);
 
         // cut off the list of questions
         questions.subList(numberofQuestions, questions.size() - 1).clear();
-        return questions;
+
+        // parse JSON in question objects
+        ArrayList<Question> questionObjects = parseTheJSON(questions);
+
+        return questionObjects;
     }
+
+    // parse the json questions into question objects
+    private ArrayList<Question> parseTheJSON(ArrayList<String> questionStrings) {
+        ArrayList<Question> questionObjects = new ArrayList<Question>();
+
+        questionStrings.forEach((question) -> System.out.print(question));
+
+        return questionObjects;
+    }
+
 
     public Question getQuestion() {
         return CodeList.remove(0);
@@ -41,7 +57,9 @@ public class GameInstance{
 
     }
 
-    public void concludeGame() {
-
+    // update game history
+    public Tracker concludeGame(Tracker gameStore) {
+        gameStore.setNewScore(currentScore, numberofQuestions, currentLang);
+        return gameStore;
     }
 }
