@@ -1,4 +1,4 @@
-package com.lapis.codefun
+package com.lapis.codefun.Activities
 
 import android.content.Context
 import android.os.Bundle
@@ -11,15 +11,18 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.lapis.codefun.Language
+import com.lapis.codefun.R
 import com.lapis.codefun.backend.CodeStore
 import com.lapis.codefun.backend.GameInstance
-import com.lapis.codefun.backend.Games
 import com.lapis.codefun.backend.Question
 import kotlinx.android.synthetic.main.activity_game_page.*
 
 class GamePage : AppCompatActivity()
 {
-    val game = GameInstance.createInstance(CodeStore.sizeOf(Language.current) - 1, Language.current)
+    val game = GameInstance.createInstance(CodeStore.sizeOf(Language.current) - 1,
+        Language.current
+    )
     var question: Question? = game.question
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -90,7 +93,13 @@ class AnswersAdapter(private val context: Context, private var question: Questio
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerCell
     {
-        return AnswerCell(View.inflate(context, R.layout.answer_view, null))
+        return AnswerCell(
+            View.inflate(
+                context,
+                R.layout.answer_view,
+                null
+            )
+        )
     }
 
     override fun onBindViewHolder(answerCell: AnswerCell, position: Int)

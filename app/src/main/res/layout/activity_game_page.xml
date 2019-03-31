@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".GamePage">
+        tools:context=".Activities.GamePage">
     <TextView
             android:text="TextView"
             android:layout_width="0dp"
@@ -21,10 +21,6 @@
             android:layout_height="0dp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/questionField" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:id="@+id/linearLayout">
-        <Button
-                android:text="buttonA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/button3" android:layout_weight="1"/>
         <Button
                 android:text="Submit"
                 android:layout_width="wrap_content"
