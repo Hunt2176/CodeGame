@@ -40,7 +40,7 @@ class GamePage : AppCompatActivity()
             val correct = game.submit(answersAdapter.getAnswers().toIntArray(), question)
             println("$correct of ${question!!.origCode.size}")
             Toast.makeText(this,
-                    if (correct == question!!.origCode.size) { "Correct!" }
+                    if (correct >= question!!.origCode.size) { "Correct!" }
                     else "Oh no! It was incorrect!",
                     Toast.LENGTH_LONG)
                 .show()

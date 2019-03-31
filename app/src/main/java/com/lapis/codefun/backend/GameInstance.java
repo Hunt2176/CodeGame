@@ -82,12 +82,10 @@ public class GameInstance{
 
     public int submit(int[] currentCode, Question original) {
         int questionScore = 0;
-        for (int line : currentCode) {
-           for (int origLine : original.correctCode) {
-               if (line == origLine) {
-                   questionScore++;
-               }
-           }
+
+        for (int i = 0; i < currentCode.length; i++)
+        {
+            if (original.correctCode[i] == currentCode[i]) questionScore++;
         }
 
         currentScore += questionScore;
