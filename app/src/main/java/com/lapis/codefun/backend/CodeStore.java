@@ -460,6 +460,31 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+        cpp.add("{\n" +
+                "  \"prompt\": \"take the cube of a number and print it\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Cube cube = (x) -> x * x * x;\",\n" +
+                "      \"Cube cube = [](int x) {x*x*x};\",\n" +
+                "      \"(define cube (lambda (x) (x*x*x)))\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int cubeint = cube(3);\",\n" +
+                "      \"cubeint = cube(3);\",\n" +
+                "      \"cubeint - cube(3)\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"(write (cube 3))\",\n" +
+                "      \"cout << cubeint << endl;\",\n" +
+                "      \"System.out.println(square(3));\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    1\n" +
+                "  ]\n" +
+                "}");
     }
 
 
