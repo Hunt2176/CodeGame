@@ -149,6 +149,30 @@ public class CodeStore {
                 "  ]\n" +
                 "}");
 
+        python.add("{\n" +
+                "  \"prompt\": \"Add the integers 2 and 8\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"float a = 2F\",\n" +
+                "      \"a = 8;\",\n" +
+                "      \"int a = 6;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"b = 8;\",\n" +
+                "      \"b = 2;\",\n" +
+                "      \"static Main {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"c = a + b\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
+
     }
 
 
