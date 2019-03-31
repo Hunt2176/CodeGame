@@ -227,6 +227,49 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+
+        java.add("{\n" +
+                "  \"prompt\": \"take the cube of a number and print it\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Cube cube = (x) -> x * x * x;\",\n" +
+                "      \"Cube cube = (x) => x * x * x;\",\n" +
+                "      \"(define cube (lambda (x) (x*x*x)))\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"(write (cube 3))\",\n" +
+                "      \"Console.WriteLine(square(3));\",\n" +
+                "      \"System.out.println(square(3));\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    0,\n" +
+                "    2\n" +
+                "  ]\n" +
+                "}");
+        java.add("{\n" +
+                "  \"prompt\": \"Add the integers 2 and 8\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"float a = 2F\",\n" +
+                "      \"int a = 8;\",\n" +
+                "      \"int a = 6;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int b = 8;\",\n" +
+                "      \"int b = 2;\",\n" +
+                "      \"static Main {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int c = a + b\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
     }
 
 
