@@ -411,6 +411,31 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+
+        cpp.add("{\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"int array[10] = {1,2,3,4,5,6,7,8,9,10};\",\n" +
+                "      \"int array[10];\",\n" +
+                "      \"int array = {1,2,3,4,5,6,7,8,9,10};\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"for (int x = 1; x <= 10; x++)\",\n" +
+                "      \"for (int x = 1; x < 10; x++)\",\n" +
+                "      \"for (int x = 1; x => 10; x++)\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"\\t\\tcout << array[x];\",\n" +
+                "      \"\\t\\tcout << x;\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"prompt\": \"Get an integer from the user and store in a variable\",\n" +
+                "  \"correctCode\": [\n" +
+                "    0,\n" +
+                "    1,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
     }
 
 
