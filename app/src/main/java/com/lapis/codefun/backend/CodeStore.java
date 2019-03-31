@@ -129,6 +129,26 @@ public class CodeStore {
                 "  ]\n" +
                 "}");
 
+        python.add("{\n" +
+                "  \"prompt\": \"take the cube of a number and print it\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Cube cube = x : x * x * x\",\n" +
+                "      \"cube = lambda x : x * x * x\",\n" +
+                "      \"(define cube (lambda (x) (x*x*x)))\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"(write (cube 3))\",\n" +
+                "      \"Console.WriteLine(square(3));\",\n" +
+                "      \"print(cube(3))\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    0,\n" +
+                "    2\n" +
+                "  ]\n" +
+                "}");
+
     }
 
 
