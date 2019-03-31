@@ -40,6 +40,7 @@ public class CodeStore {
         }
     }
 
+    //Python
     private void setPythonQuestions() {
         python.add("{\n" +
                 "  \"origCode\": [\n" +
@@ -128,8 +129,54 @@ public class CodeStore {
                 "  ]\n" +
                 "}");
 
+        python.add("{\n" +
+                "  \"prompt\": \"take the cube of a number and print it\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Cube cube = x : x * x * x\",\n" +
+                "      \"cube = lambda x : x * x * x\",\n" +
+                "      \"(define cube (lambda (x) (x*x*x)))\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"(write (cube 3))\",\n" +
+                "      \"Console.WriteLine(square(3));\",\n" +
+                "      \"print(cube(3))\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    0,\n" +
+                "    2\n" +
+                "  ]\n" +
+                "}");
+
+        python.add("{\n" +
+                "  \"prompt\": \"Add the integers 2 and 8\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"float a = 2F\",\n" +
+                "      \"a = 8;\",\n" +
+                "      \"int a = 6;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"b = 8;\",\n" +
+                "      \"b = 2;\",\n" +
+                "      \"static Main {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"c = a + b\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
+
     }
 
+
+    //Java
     private void setJavaQuestions(){
         java.add("{\n" +
                 "  \"origCode\": [\n" +
@@ -200,8 +247,78 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+
+        java.add("{\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Scanner reader = new Scanner(System.in);\",\n" +
+                "      \"Scanner reader = new Scanner();\",\n" +
+                "      \"Scanner reader;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"System.out.print(\\\"Enter a number: \\\");\",\n" +
+                "      \"print(\\\"Enter a number\\\");\",\n" +
+                "      \"reader = new Scanner(\\\"Enter a number: \\\");\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int number = reader.nextInt();\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"prompt\": \"Get an integer from the user and store in a variable\",\n" +
+                "  \"correctCode\": [\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
+
+        java.add("{\n" +
+                "  \"prompt\": \"take the cube of a number and print it\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Cube cube = (x) -> x * x * x;\",\n" +
+                "      \"Cube cube = (x) => x * x * x;\",\n" +
+                "      \"(define cube (lambda (x) (x*x*x)))\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"(write (cube 3))\",\n" +
+                "      \"Console.WriteLine(square(3));\",\n" +
+                "      \"System.out.println(square(3));\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    0,\n" +
+                "    2\n" +
+                "  ]\n" +
+                "}");
+        java.add("{\n" +
+                "  \"prompt\": \"Add the integers 2 and 8\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"float a = 2F\",\n" +
+                "      \"int a = 8;\",\n" +
+                "      \"int a = 6;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int b = 8;\",\n" +
+                "      \"int b = 2;\",\n" +
+                "      \"static Main {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int c = a + b\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
     }
 
+
+
+    //C++
     private void setCppQuestions(){
         cpp.add("{\n" +
                 "  \"origCode\": [\n" +
@@ -272,8 +389,107 @@ public class CodeStore {
                 "    0\n" +
                 "  ]\n" +
                 "}");
+
+        cpp.add("{\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"int main()\",\n" +
+                "      \"void main():\",\n" +
+                "      \"void hello();\\nvoid main()\",\n" +
+                "      \"void hello();\\nint main()\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"{\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"\\t\\thello();\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"}\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"void hello()\",\n" +
+                "      \"int hello()\",\n" +
+                "      \"char* hello()\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"{\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"\\t\\tcout << \\\"hello world\\\";\",\n" +
+                "      \"\\t\\tcout >> \\\"hello world\\\";\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"}\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"prompt\": \"Call a function from main to print \\\"hello world\\\"\",\n" +
+                "  \"correctCode\": [\n" +
+                "    3,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
+
+        cpp.add("{\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"int array[10] = {1,2,3,4,5,6,7,8,9,10};\",\n" +
+                "      \"int array[10];\",\n" +
+                "      \"int array = {1,2,3,4,5,6,7,8,9,10};\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"for (int x = 1; x <= 10; x++)\",\n" +
+                "      \"for (int x = 1; x < 10; x++)\",\n" +
+                "      \"for (int x = 1; x => 10; x++)\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"\\t\\tcout << array[x];\",\n" +
+                "      \"\\t\\tcout << x;\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"prompt\": \"Get an integer from the user and store in a variable\",\n" +
+                "  \"correctCode\": [\n" +
+                "    0,\n" +
+                "    1,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
+        cpp.add("{\n" +
+                "  \"prompt\": \"take the cube of a number and print it\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Cube cube = (x) -> x * x * x;\",\n" +
+                "      \"Cube cube = [](int x) {x*x*x};\",\n" +
+                "      \"(define cube (lambda (x) (x*x*x)))\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int cubeint = cube(3);\",\n" +
+                "      \"cubeint = cube(3);\",\n" +
+                "      \"cubeint - cube(3)\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"(write (cube 3))\",\n" +
+                "      \"cout << cubeint << endl;\",\n" +
+                "      \"System.out.println(square(3));\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    1\n" +
+                "  ]\n" +
+                "}");
     }
 
+
+
+    //C#
     private void setCsharpQuestions(){
         csharp.add("{\n" +
                 "  \"origCode\": [\n" +
@@ -341,6 +557,89 @@ public class CodeStore {
                 "    1,\n" +
                 "    0,\n" +
                 "    0,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
+
+        csharp.add("{\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"static Pen pen1;\",\n" +
+                "      \"static Point point1;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"Main() {\",\n" +
+                "      \"static void Main(string[] args) {\",\n" +
+                "      \"static Main {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"if (point == (0,0)) {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"return 0;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"{\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"return 1;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"}\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"prompt\": \"make a point and complete run without error\",\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
+
+        csharp.add("{\n" +
+                "  \"prompt\": \"Add the integers 2 and 8\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"float a = 2F\",\n" +
+                "      \"int a = 8;\",\n" +
+                "      \"int a = 6;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int b = 8;\",\n" +
+                "      \"int b = 2;\",\n" +
+                "      \"static Main {\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"int c = a + b\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
+                "    1,\n" +
+                "    0\n" +
+                "  ]\n" +
+                "}");
+
+        csharp.add("{\n" +
+                "  \"prompt\": \"take the cube of a number and print it\",\n" +
+                "  \"origCode\": [\n" +
+                "    [\n" +
+                "      \"Func<int, int> cube = x -> x * x * x;\",\n" +
+                "      \"Func<int, int> cube = x => x * x * x;\",\n" +
+                "      \"Func<int, int> cube = x => x * x;\"\n" +
+                "    ],\n" +
+                "    [\n" +
+                "      \"Console.WriteLine(cube(3));\",\n" +
+                "      \"System.out.println(square(3));\",\n" +
+                "      \"Console.WriteLine(square(3));\"\n" +
+                "    ]\n" +
+                "  ],\n" +
+                "  \"correctCode\": [\n" +
+                "    1,\n" +
                 "    0\n" +
                 "  ]\n" +
                 "}");
